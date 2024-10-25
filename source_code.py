@@ -21,3 +21,33 @@ def label_change():
     label2.configure(text=to_lang)
     # Repeat the function every second
     root.after(1000, label_change)
+
+# Function to perform the translation
+def translate_now():
+    try:
+        # Get the input text from the text area
+        text_ = text1.get(1.0, END).strip()
+        from_lang = combbol1.get()  # Get the selected source language
+        to_lang = combbol2.get()  # Get the selected target language
+
+        # Check if the input text is empty
+        if not text_:
+            messagebox.showwarning("Warning", "Please enter text to translate.")
+            return  # Exit the function if input is empty
+
+        # Detect the language of the input text
+        detected_lang = translator.detect(text_).lang
+        if detected_lang not in LANGUAGES.keys():
+            messagebox.showerror("Error", "Detected language is invalid.")
+            return  # Exit the function if the detected language is invalid
+
+        # Translate the text
+        translated = translator.translate(text_, src=detected_lang, dest=list(LANGUAGES.keys())[list(LANGUAGES.values()).index(to_lang)])
+        
+        # Display the translated text in the output text area
+        text2.delete(1.0, END)  # Clear previous output
+        text2.insert(END, translated.text)  # Insert the translated text
+
+    except Exception as e:
+        # Show an error message in case of an exception
+        messagebox.showerror("Translation Error", f"Could not translate the text. Please try again.\nError: {str(e)}")
