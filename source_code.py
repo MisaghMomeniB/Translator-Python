@@ -7,3 +7,6 @@ root = Tk()
 root.title("Translator")
 root.geometry("1080x400")  # Set window size
 root.configure(bg="white")  # Set background color
+
+# Initialize the Translator
+translator = Translator()
