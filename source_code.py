@@ -71,3 +71,14 @@ combbol1.set("English")  # Set default value
 
 label1 = Label(root, text="English", font="Arial 30 bold", bg="white", width=18, bd=5, relief="groove")
 label1.place(x=10, y=60)  # Position the label
+
+# Frame for input text
+input_frame = Frame(root, bg="Black", bd=5)
+input_frame.place(x=10, y=120, width=440, height=200)
+
+text1 = Text(input_frame, font="Arial 20", bg="white", relief=GROOVE, wrap=WORD)  # Input text area
+text1.place(x=0, y=0, width=430, height=200)
+
+scrollbar1 = Scrollbar(input_frame, command=text1.yview)  # Scrollbar for input text
+scrollbar1.pack(side="right", fill="y")
+text1.configure(yscrollcommand=scrollbar1.set)  # Link scrollbar with text area
