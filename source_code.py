@@ -68,3 +68,6 @@ languageV = list(language.values())  # List of language names
 combbol1 = ttk.Combobox(root, values=languageV, font="Arial 14", state="readonly")
 combbol1.place(x=10, y=20, width=200)
 combbol1.set("English")  # Set default value
+
+label1 = Label(root, text="English", font="Arial 30 bold", bg="white", width=18, bd=5, relief="groove")
+label1.place(x=10, y=60)  # Position the label
