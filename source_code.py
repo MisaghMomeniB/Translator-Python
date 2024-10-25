@@ -63,3 +63,8 @@ except Exception as e:
 # Language options
 language = LANGUAGES
 languageV = list(language.values())  # List of language names
+
+# Create and place the first language combobox (source language)
+combbol1 = ttk.Combobox(root, values=languageV, font="Arial 14", state="readonly")
+combbol1.place(x=10, y=20, width=200)
+combbol1.set("English")  # Set default value
