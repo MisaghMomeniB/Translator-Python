@@ -101,3 +101,7 @@ text2.place(x=0, y=0, width=430, height=200)
 scrollbar2 = Scrollbar(output_frame, command=text2.yview)  # Scrollbar for output text
 scrollbar2.pack(side="right", fill="y")
 text2.configure(yscrollcommand=scrollbar2.set)  # Link scrollbar with text area
+
+# Translate button
+translate = Button(root, text="Translate", font="Arial 15 bold", activebackground="purple", cursor="hand2", bd=5, bg="red", fg="white", command=translate_now)
+translate.place(x=465, y=250, width=120, height=40)  # Position the button and set its size
