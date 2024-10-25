@@ -51,3 +51,11 @@ def translate_now():
     except Exception as e:
         # Show an error message in case of an exception
         messagebox.showerror("Translation Error", f"Could not translate the text. Please try again.\nError: {str(e)}")
+
+# Load images for the application
+try:
+    image_icon = PhotoImage(file="GT.png")  # Load the icon image
+    root.iconphoto(False, image_icon)  # Set window icon
+    arrow_image = PhotoImage(file="trns.png")  # Load the arrow image
+except Exception as e:
+    messagebox.showerror("Image Error", f"Could not load images.\nError: {str(e)}")  # Handle image loading errors
