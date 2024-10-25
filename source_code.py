@@ -105,3 +105,10 @@ text2.configure(yscrollcommand=scrollbar2.set)  # Link scrollbar with text area
 # Translate button
 translate = Button(root, text="Translate", font="Arial 15 bold", activebackground="purple", cursor="hand2", bd=5, bg="red", fg="white", command=translate_now)
 translate.place(x=465, y=250, width=120, height=40)  # Position the button and set its size
+
+# Show arrow image in the UI
+# image_label = Label(root, image=arrow_image, width=70, bg="white")
+# image_label.place(x=500, y=60)  # Position the image
+
+label_change()  # Start the label updating loop
+root.mainloop()  # Run the application
