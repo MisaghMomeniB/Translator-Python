@@ -82,3 +82,8 @@ text1.place(x=0, y=0, width=430, height=200)
 scrollbar1 = Scrollbar(input_frame, command=text1.yview)  # Scrollbar for input text
 scrollbar1.pack(side="right", fill="y")
 text1.configure(yscrollcommand=scrollbar1.set)  # Link scrollbar with text area
+
+# Create and place the second language combobox (target language)
+combbol2 = ttk.Combobox(root, values=languageV, font="Arial 14", state="readonly")
+combbol2.place(x=800, y=20, width=200)
+combbol2.set("Select Language")  # Set default value
