@@ -87,3 +87,6 @@ text1.configure(yscrollcommand=scrollbar1.set)  # Link scrollbar with text area
 combbol2 = ttk.Combobox(root, values=languageV, font="Arial 14", state="readonly")
 combbol2.place(x=800, y=20, width=200)
 combbol2.set("Select Language")  # Set default value
+
+label2 = Label(root, text="Select Language", font="Arial 30 bold", bg="white", width=18, bd=5, relief="groove")
+label2.place(x=620, y=60)  # Position the label
