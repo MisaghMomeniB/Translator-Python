@@ -59,3 +59,7 @@ try:
     arrow_image = PhotoImage(file="trns.png")  # Load the arrow image
 except Exception as e:
     messagebox.showerror("Image Error", f"Could not load images.\nError: {str(e)}")  # Handle image loading errors
+
+# Language options
+language = LANGUAGES
+languageV = list(language.values())  # List of language names
