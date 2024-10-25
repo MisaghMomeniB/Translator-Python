@@ -90,3 +90,14 @@ combbol2.set("Select Language")  # Set default value
 
 label2 = Label(root, text="Select Language", font="Arial 30 bold", bg="white", width=18, bd=5, relief="groove")
 label2.place(x=620, y=60)  # Position the label
+
+# Frame for output text
+output_frame = Frame(root, bg="Black", bd=5)
+output_frame.place(x=600, y=120, width=440, height=200)
+
+text2 = Text(output_frame, font="Arial 20", bg="white", relief=GROOVE, wrap=WORD)  # Output text area
+text2.place(x=0, y=0, width=430, height=200)
+
+scrollbar2 = Scrollbar(output_frame, command=text2.yview)  # Scrollbar for output text
+scrollbar2.pack(side="right", fill="y")
+text2.configure(yscrollcommand=scrollbar2.set)  # Link scrollbar with text area
