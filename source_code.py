@@ -13,7 +13,7 @@ translator = Translator()
 
 # Function to update language labels based on the selected languages
 def update_labels():
-    label1.configure(text=dombobox_from_lang.get())
+    label1.configure(text=combobox_from_lang.get())
     label2.configure(text=combobox_to_lang.get())
     root.after(1000, update_labels)
 
