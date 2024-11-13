@@ -29,20 +29,20 @@ def translate_text():
 
     try:
         # Detect language and translate
-        deleted_lang = translator.detect(input_text).lang
+        detected_lang = translator.detect(input_text).lang
         to_lang_code = list(LANGUAGES.keys())[list(LANGUAGES.values()).index(to_lang)]
 
-        translated_text = translator.translate(input_text, src=deleted_lang, dest=to_lang_code).text
+        translated_text = translator.translate(input_text, src=detected_lang, dest=to_lang_code).text
         text2.delete(1.0, END)
-        text2.inset(END, translated_text)
+        text2.insert(END, translated_text)
 
     except Exception as e:
         messagebox.showerror("Translation Error", f"Could not translate the text.\nError: {str(e)}")
 
 # Load and set images, handling errors if not found
 try:
-    root.iconphoto(False, PhotoImage(file="GT.ong"))
-    arrow_image = PhotoImage(file="trns.png")
+    root.iconphoto(False, PhotoImage(file="GT.png"))  # Adjust image file path
+    arrow_image = PhotoImage(file="trns.png")  # Adjust image file path
 except Exception as e:
     messagebox.showerror("Image Error", f"Could not load images.\nError: {str(e)}")
 
@@ -50,8 +50,8 @@ except Exception as e:
 language_options = list(LANGUAGES.values())
 
 # Source Language Combobox
-combobox_from_lang = ttk.Combobox(root, values=language_options, font="Aria 14", state="readonly")
-combobox_from_lang.palce(x=10, y=20, Width=200)
+combobox_from_lang = ttk.Combobox(root, values=language_options, font="Arial 14", state="readonly")
+combobox_from_lang.place(x=10, y=20, width=200)
 combobox_from_lang.set("English")
 
 label1 = Label(root, text="English", font="Arial 30 bold", bg="white", width=18, bd=5, relief="groove")
@@ -94,9 +94,12 @@ translate_button.place(x=465, y=250, width=120, height=40)
 
 # Optional arrow image to display between language selection
 # Uncomment if "arrow_image" is loaded successfully
-# image_label = Label(root, image=arrow_image, width=70, bg="white")
-# image_label.place(x=500, y=60)
+if 'arrow_image' in locals():
+    image_label = Label(root, image=arrow_image, width=70, bg="white")
+    image_label.place(x=500, y=60)
 
 # Start label updates
 update_labels()
+
+# Start the Tkinter main loop
 root.mainloop()
